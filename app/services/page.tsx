@@ -176,36 +176,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-                      <h3 className="text-2xl font-bold text-white mb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-400 leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="border-t border-neutral-700 pt-6">
-                    <h4 className="text-sm font-semibold text-white/80 mb-4 uppercase tracking-wide">
-                      Key Features
-                    </h4>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-[#ff6b35] rounded-full mt-2 flex-shrink-0" />
-                          <span className="text-gray-300 text-sm leading-relaxed">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* How It Works */}
       <section className="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
