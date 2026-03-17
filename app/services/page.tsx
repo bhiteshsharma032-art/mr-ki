@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Phone, MessageCircle, TrendingUp, Globe, FileText, Video, Image, BarChart3, Users, Zap, Brain } from 'lucide-react';
+import { Mail, Phone, MessageCircle, TrendingUp, Globe, FileText, Video, BarChart3, Users, Zap, Brain } from 'lucide-react';
 
 const SERVICES = [
   {
@@ -136,18 +136,46 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {SERVICES.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <div key={index} className="bg-neutral-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-[#ff6b35]/50 border border-neutral-600">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-14 h-14 bg-[#ff6b35]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-7 h-7 text-[#ff6b35]" />
+                <div key={index} className="bg-gray-900 rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-[#ff6b35]/50 border border-gray-800">
+                  <div className="flex items-start gap-3 lg:gap-4 mb-4 lg:mb-6">
+                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-[#ff6b35]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-6 h-6 lg:w-7 lg:h-7 text-[#ff6b35]" />
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg lg:text-xl font-bold text-white mb-2 lg:mb-3">{service.title}</h3>
+                      <p className="text-gray-400 text-sm lg:text-base leading-relaxed mb-4 lg:mb-6">{service.description}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2 lg:space-y-3">
+                    {service.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-start gap-2 lg:gap-3">
+                        <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-[#ff6b35] rounded-full flex-shrink-0 mt-2" />
+                        <span className="text-gray-300 text-sm lg:text-base">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-6 lg:mt-8">
+                    <button 
+                      onClick={() => window.location.href = '/contact'}
+                      className="w-full bg-[#ff6b35] hover:bg-[#ff7d4d] text-white font-semibold py-3 lg:py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 text-sm lg:text-base"
+                    >
+                      Get Started
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
                       <h3 className="text-2xl font-bold text-white mb-2">
                         {service.title}
                       </h3>
@@ -180,18 +208,18 @@ export default function ServicesPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-900/50">
+      <section className="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
               How We <span className="text-[#ff6b35]">Deliver Results</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm lg:text-base px-4">
               Our proven process ensures your AI automation system is perfectly tailored to your business needs.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[
               { step: "01", title: "Analysis", desc: "We analyze your brand, niche, target location, and business processes" },
               { step: "02", title: "Development", desc: "Custom AI system development and training specific to your needs" },
@@ -199,11 +227,11 @@ export default function ServicesPage() {
               { step: "04", title: "Support", desc: "Ongoing monitoring, optimization, and 24/7 support" }
             ].map((item, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-[#ff6b35]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-[#ff6b35]">{item.step}</span>
+                <div className="w-14 h-14 lg:w-16 lg:h-16 bg-[#ff6b35]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl lg:text-2xl font-bold text-[#ff6b35]">{item.step}</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm">{item.desc}</p>
+                <h3 className="text-lg lg:text-xl font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-sm lg:text-base">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -211,20 +239,20 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
             Ready to Automate Your Business?
           </h2>
-          <p className="text-xl text-gray-400 mb-8">
+          <p className="text-lg lg:text-xl text-gray-400 mb-8 px-4">
             Let's discuss which AI automation solutions are right for your business.
           </p>
           <button 
             onClick={() => window.location.href = '/contact'}
-            className="bg-[#ff6b35] hover:bg-[#ff7d4d] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
+            className="bg-[#ff6b35] hover:bg-[#ff7d4d] text-white font-semibold px-6 lg:px-8 py-3 lg:py-4 rounded-xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 text-sm lg:text-base"
           >
             Get Started Today
-            <Users className="w-5 h-5" />
+            <Users className="w-4 h-4 lg:w-5 lg:h-5" />
           </button>
         </div>
       </section>

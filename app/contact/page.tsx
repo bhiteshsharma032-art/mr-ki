@@ -56,13 +56,13 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-20">
           {/* Contact Form */}
-          <div className="bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-800">
-            <h2 className="text-2xl font-bold text-white mb-6">Send us a message</h2>
+          <div className="bg-gray-900 rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-800">
+            <h2 className="text-xl lg:text-2xl font-bold text-white mb-6">Send us a message</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Full Name *
@@ -74,7 +74,7 @@ export default function ContactPage() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#ff6b35] transition-colors"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#ff6b35] transition-colors text-sm lg:text-base"
                     placeholder="John Doe"
                   />
                 </div>
@@ -89,7 +89,7 @@ export default function ContactPage() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#ff6b35] transition-colors"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#ff6b35] transition-colors text-sm lg:text-base"
                     placeholder="john@company.com"
                   />
                 </div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#ff6b35] transition-colors"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#ff6b35] transition-colors text-sm lg:text-base"
                   placeholder="Your Company"
                 />
               </div>
@@ -119,7 +119,7 @@ export default function ContactPage() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-[#ff6b35] transition-colors"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-[#ff6b35] transition-colors text-sm lg:text-base"
                 >
                   <option value="automation-audit">Free Automation Assessment</option>
                   <option value="consultation">Business Consultation</option>
@@ -138,10 +138,10 @@ export default function ContactPage() {
                   id="message"
                   name="message"
                   required
-                  rows={5}
+                  rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#ff6b35] transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#ff6b35] transition-colors resize-none text-sm lg:text-base"
                   placeholder="Describe your current challenges and what you'd like to automate..."
                 />
               </div>
@@ -149,17 +149,17 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitted}
-                className="w-full bg-[#ff6b35] hover:bg-[#ff7d4d] disabled:bg-gray-600 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                className="w-full bg-[#ff6b35] hover:bg-[#ff7d4d] disabled:bg-gray-600 text-white font-semibold py-3 lg:py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 text-sm lg:text-base"
               >
                 {isSubmitted ? (
                   <>
-                    <CheckCircle className="w-5 h-5" />
+                    <CheckCircle className="w-4 h-4 lg:w-5 lg:h-5" />
                     Message Sent!
                   </>
                 ) : (
                   <>
                     Send Message
-                    <Send className="w-5 h-5" />
+                    <Send className="w-4 h-4 lg:w-5 lg:h-5" />
                   </>
                 )}
               </button>
@@ -167,76 +167,76 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-8">
             {/* Contact Details */}
-            <div className="bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-800">
-              <h3 className="text-xl font-bold text-white mb-6">Contact Information</h3>
+            <div className="bg-gray-900 rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-800">
+              <h3 className="text-lg lg:text-xl font-bold text-white mb-6">Contact Information</h3>
               
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#ff6b35]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-[#ff6b35]" />
+              <div className="space-y-4 lg:space-y-6">
+                <div className="flex items-start gap-3 lg:gap-4">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#ff6b35]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 lg:w-6 lg:h-6 text-[#ff6b35]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Email Us</h4>
-                    <p className="text-gray-400">hello@mrki.ai</p>
-                    <p className="text-gray-400">support@mrki.ai</p>
+                    <h4 className="font-semibold text-white mb-1 text-sm lg:text-base">Email Us</h4>
+                    <p className="text-gray-400 text-sm lg:text-base">hello@mrki.ai</p>
+                    <p className="text-gray-400 text-sm lg:text-base">support@mrki.ai</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#ff6b35]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-[#ff6b35]" />
+                <div className="flex items-start gap-3 lg:gap-4">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#ff6b35]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 lg:w-6 lg:h-6 text-[#ff6b35]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Call Us</h4>
-                    <p className="text-gray-400">+1 (555) 123-4567</p>
-                    <p className="text-gray-500 text-sm">Mon-Fri 9AM-6PM EST</p>
+                    <h4 className="font-semibold text-white mb-1 text-sm lg:text-base">Call Us</h4>
+                    <p className="text-gray-400 text-sm lg:text-base">+1 (555) 123-4567</p>
+                    <p className="text-gray-500 text-xs lg:text-sm">Mon-Fri 9AM-6PM EST</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#ff6b35]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-[#ff6b35]" />
+                <div className="flex items-start gap-3 lg:gap-4">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#ff6b35]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 lg:w-6 lg:h-6 text-[#ff6b35]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Location</h4>
-                    <p className="text-gray-400">San Francisco, CA</p>
-                    <p className="text-gray-400">Remote-First Company</p>
+                    <h4 className="font-semibold text-white mb-1 text-sm lg:text-base">Location</h4>
+                    <p className="text-gray-400 text-sm lg:text-base">San Francisco, CA</p>
+                    <p className="text-gray-400 text-sm lg:text-base">Remote-First Company</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#ff6b35]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-[#ff6b35]" />
+                <div className="flex items-start gap-3 lg:gap-4">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#ff6b35]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 lg:w-6 lg:h-6 text-[#ff6b35]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Response Time</h4>
-                    <p className="text-gray-400">Within 24 hours</p>
-                    <p className="text-gray-500 text-sm">Usually much faster</p>
+                    <h4 className="font-semibold text-white mb-1 text-sm lg:text-base">Response Time</h4>
+                    <p className="text-gray-400 text-sm lg:text-base">Within 24 hours</p>
+                    <p className="text-gray-500 text-xs lg:text-sm">Usually much faster</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* FAQ Quick Links */}
-            <div className="bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-800">
-              <h3 className="text-xl font-bold text-white mb-6">Quick Questions?</h3>
+            <div className="bg-gray-900 rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-800">
+              <h3 className="text-lg lg:text-xl font-bold text-white mb-6">Quick Questions?</h3>
               
               <div className="space-y-4">
                 <div className="border-l-4 border-[#ff6b35] pl-4">
-                  <h4 className="font-semibold text-white mb-1">How long does implementation take?</h4>
-                  <p className="text-gray-400 text-sm">Most projects are completed within 2-4 weeks.</p>
+                  <h4 className="font-semibold text-white mb-1 text-sm lg:text-base">How long does implementation take?</h4>
+                  <p className="text-gray-400 text-xs lg:text-sm">Most projects are completed within 2-4 weeks.</p>
                 </div>
                 
                 <div className="border-l-4 border-[#ff6b35] pl-4">
-                  <h4 className="font-semibold text-white mb-1">What's included in the service?</h4>
-                  <p className="text-gray-400 text-sm">Complete development, deployment, training, and ongoing support.</p>
+                  <h4 className="font-semibold text-white mb-1 text-sm lg:text-base">What's included in the service?</h4>
+                  <p className="text-gray-400 text-xs lg:text-sm">Complete development, deployment, training, and ongoing support.</p>
                 </div>
                 
                 <div className="border-l-4 border-[#ff6b35] pl-4">
-                  <h4 className="font-semibold text-white mb-1">Do you offer guarantees?</h4>
-                  <p className="text-gray-400 text-sm">Yes, we offer a 30-day satisfaction guarantee on all projects.</p>
+                  <h4 className="font-semibold text-white mb-1 text-sm lg:text-base">Do you offer guarantees?</h4>
+                  <p className="text-gray-400 text-xs lg:text-sm">Yes, we offer a 30-day satisfaction guarantee on all projects.</p>
                 </div>
               </div>
             </div>
@@ -244,12 +244,12 @@ export default function ContactPage() {
         </div>
 
         {/* Calendly Booking Section */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <div className="mt-16 lg:mt-20">
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
               Schedule a <span className="text-[#ff6b35]">Free Consultation</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm lg:text-base px-4">
               Book a 30-minute call to discuss your automation needs and see how we can help transform your business.
             </p>
           </div>
@@ -258,7 +258,7 @@ export default function ContactPage() {
             <div 
               className="calendly-inline-widget" 
               data-url="https://calendly.com/mrkiglobal/30min?hide_gdpr_banner=1" 
-              style={{ minWidth: '320px', height: '800px', width: '100%' }}
+              style={{ minWidth: '320px', height: '600px', width: '100%' }}
             />
           </div>
         </div>
