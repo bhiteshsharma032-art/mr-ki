@@ -33,13 +33,11 @@ export default function ContactPage() {
 
         {/* Calendly Booking Section */}
         <div className="max-w-5xl mx-auto">
-          <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-gray-800">
-            <div 
-              className="calendly-inline-widget" 
-              data-url="https://calendly.com/mrkiglobal/30min?hide_gdpr_banner=1&hide_event_type_details=1" 
-              style={{ minWidth: '320px', height: '900px', width: '100%' }}
-            />
-          </div>
+          <div 
+            className="calendly-inline-widget" 
+            data-url="https://calendly.com/mrkiglobal/30min?hide_gdpr_banner=1&hide_event_type_details=1" 
+            style={{ minWidth: '320px', height: '900px', width: '100%' }}
+          />
         </div>
       </div>
     </div>
