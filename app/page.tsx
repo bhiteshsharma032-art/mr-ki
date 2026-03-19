@@ -13,6 +13,7 @@ import OfferSection from '@/components/sections/OfferSection';
 import { LogoMarquee } from '@/components/sections/LogoMarquee';
 import ProcessSection from '@/components/sections/ProcessSection';
 import ResultsSection from '@/components/sections/ResultsSection';
+import { AboutSection } from '@/components/sections/AboutSection';
 import CTASection from '@/components/sections/CTASection';
 import FAQSection from '@/components/sections/FAQSection';
 import Footer from '@/components/sections/Footer';
@@ -35,6 +36,7 @@ export default function Home() {
           <LogoMarquee />
           <ResultsSection />
           <ProcessSection />
+          <AboutSection />
           <CTASection />
           <FAQSection />
           <Footer />
