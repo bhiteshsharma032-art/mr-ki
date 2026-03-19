@@ -1,13 +1,12 @@
 'use client';
 
 import { Linkedin } from 'lucide-react';
-import Image from 'next/image';
 
 const TEAM_MEMBERS = [
   {
-    name: "Yash Rai",
+    name: "Yash Raj",
     role: "Chief Technology Officer",
-    image: "/team/yash-rai.jpg", // You'll add this image later
+    image: "/team/yash-raj.jpg", // You'll add this image later
     company: "",
     description: "I build AI-driven systems that replace manual work inside businesses.",
     focus: "My work is focused on designing structured automation infrastructures — not experiments, not demos.",
@@ -58,14 +57,15 @@ export function AboutSection() {
           {TEAM_MEMBERS.map((member, index) => (
             <div 
               key={index} 
-              className="bg-gray-900 rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-800 hover:border-[#ff6b35]/50 transition-all duration-300 hover:transform hover:scale-105"
+              className="bg-[#1a2332] rounded-2xl p-6 lg:p-8 shadow-lg border border-[#2a3442] hover:border-[#ff6b35]/50 transition-all duration-300 hover:transform hover:scale-105"
             >
               {/* Profile Image */}
-              <div className="relative w-32 h-32 lg:w-40 lg:h-40 mx-auto mb-6 rounded-2xl overflow-hidden bg-gray-800 border-4 border-gray-700">
-                {/* Placeholder for image - you'll add actual images later */}
-                <div className="w-full h-full flex items-center justify-center text-gray-600">
-                  <span className="text-4xl font-bold">{member.name.charAt(0)}</span>
-                </div>
+              <div className="relative w-32 h-32 lg:w-40 lg:h-40 mx-auto mb-6 rounded-2xl overflow-hidden bg-gray-800 border-4 border-[#2a3442]">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Name and Role */}
@@ -108,7 +108,7 @@ export function AboutSection() {
                 )}
 
                 {/* Quote */}
-                <div className="pt-4 border-t border-gray-800">
+                <div className="pt-4 border-t border-[#2a3442]">
                   <p className="text-[#00d4ff] text-xs lg:text-sm italic leading-relaxed">
                     "{member.quote}"
                   </p>
