@@ -21,9 +21,11 @@ export function Navigation() {
         <nav className="bg-[#1a1a1a]/95 backdrop-blur-xl rounded-full border border-white/10 px-5 py-2.5 flex items-center justify-between shadow-lg">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 relative z-10">
-            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-              <div className="w-3.5 h-3.5 border-2 border-black rounded" />
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Mr Ki Logo" 
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
