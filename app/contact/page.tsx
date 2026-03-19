@@ -218,28 +218,6 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-
-            {/* FAQ Quick Links */}
-            <div className="bg-gray-900 rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-800">
-              <h3 className="text-lg lg:text-xl font-bold text-white mb-6">Quick Questions?</h3>
-              
-              <div className="space-y-4">
-                <div className="border-l-4 border-[#ff6b35] pl-4">
-                  <h4 className="font-semibold text-white mb-1 text-sm lg:text-base">How long does implementation take?</h4>
-                  <p className="text-gray-400 text-xs lg:text-sm">Most projects are completed within 2-4 weeks.</p>
-                </div>
-                
-                <div className="border-l-4 border-[#ff6b35] pl-4">
-                  <h4 className="font-semibold text-white mb-1 text-sm lg:text-base">What's included in the service?</h4>
-                  <p className="text-gray-400 text-xs lg:text-sm">Complete development, deployment, training, and ongoing support.</p>
-                </div>
-                
-                <div className="border-l-4 border-[#ff6b35] pl-4">
-                  <h4 className="font-semibold text-white mb-1 text-sm lg:text-base">Do you offer guarantees?</h4>
-                  <p className="text-gray-400 text-xs lg:text-sm">Yes, we offer a 30-day satisfaction guarantee on all projects.</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
