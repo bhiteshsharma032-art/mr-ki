@@ -1,7 +1,5 @@
 'use client';
 
-import { Linkedin } from 'lucide-react';
-
 const TEAM_MEMBERS = [
   {
     name: "Yash Raj",
@@ -57,10 +55,10 @@ export function AboutSection() {
           {TEAM_MEMBERS.map((member, index) => (
             <div 
               key={index} 
-              className="bg-gray-900 rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-800 hover:border-[#ff6b35]/50 transition-all duration-300 hover:transform hover:scale-105"
+              className="bg-gray-900/80 rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-800/50 hover:border-[#ff6b35]/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm"
             >
               {/* Profile Image */}
-              <div className="relative w-32 h-32 lg:w-40 lg:h-40 mx-auto mb-6 rounded-2xl overflow-hidden bg-gray-800 border-4 border-gray-700">
+              <div className="relative w-32 h-32 lg:w-40 lg:h-40 mx-auto mb-6 rounded-2xl overflow-hidden bg-gray-800/50 border-4 border-gray-700/50">
                 <img 
                   src={member.image} 
                   alt={member.name}
@@ -76,16 +74,6 @@ export function AboutSection() {
                 <p className="text-gray-400 text-sm lg:text-base mb-4">
                   {member.role}
                 </p>
-                
-                {/* LinkedIn Button */}
-                <a 
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-[#00d4ff]/10 hover:bg-[#00d4ff]/20 rounded-full transition-colors"
-                >
-                  <Linkedin className="w-5 h-5 lg:w-6 lg:h-6 text-[#00d4ff]" />
-                </a>
               </div>
 
               {/* Company Info */}
@@ -108,7 +96,7 @@ export function AboutSection() {
                 )}
 
                 {/* Quote */}
-                <div className="pt-4 border-t border-gray-800">
+                <div className="pt-4 border-t border-gray-800/50">
                   <p className="text-[#00d4ff] text-xs lg:text-sm italic leading-relaxed">
                     "{member.quote}"
                   </p>

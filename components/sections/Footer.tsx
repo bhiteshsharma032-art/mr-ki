@@ -1,7 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import { Twitter, Linkedin, Github, ArrowRight } from 'lucide-react';
+import { Twitter, Linkedin, Github } from 'lucide-react';
 
 const footerLinks = {
   services: [
@@ -33,53 +32,9 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [isFocused, setIsFocused] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Newsletter signup:', email);
-    setEmail('');
-  };
 
   return (
     <footer className="bg-bg-secondary border-t border-border">
-      {/* Newsletter Section */}
-      <div className="border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="max-w-xl mx-auto text-center">
-            <h3 className="text-2xl font-display font-bold text-text-primary mb-4">
-              Stay ahead of the automation curve
-            </h3>
-            <form onSubmit={handleSubmit} className="flex gap-3 max-w-md mx-auto">
-              <div className="flex-1 relative">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onFocus={() => setIsFocused(true)}
-                  onBlur={() => setIsFocused(false)}
-                  placeholder="Enter your email"
-                  className={`w-full px-4 py-3 rounded-full bg-bg-card border text-text-primary placeholder:text-text-secondary focus:outline-none transition-all duration-300 shadow-soft-sm ${
-                    isFocused 
-                      ? 'border-accent-primary shadow-soft-lg shadow-accent-primary/20' 
-                      : 'border-border'
-                  }`}
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-accent-primary hover:bg-accent-primary/90 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-soft-md hover:shadow-soft-lg flex items-center gap-2 whitespace-nowrap"
-              >
-                Subscribe
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
