@@ -57,10 +57,10 @@ export function AboutSection() {
           {TEAM_MEMBERS.map((member, index) => (
             <div 
               key={index} 
-              className="bg-[#1a2332] rounded-2xl p-6 lg:p-8 shadow-lg border border-[#2a3442] hover:border-[#ff6b35]/50 transition-all duration-300 hover:transform hover:scale-105"
+              className="bg-gray-900 rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-800 hover:border-[#ff6b35]/50 transition-all duration-300 hover:transform hover:scale-105"
             >
               {/* Profile Image */}
-              <div className="relative w-32 h-32 lg:w-40 lg:h-40 mx-auto mb-6 rounded-2xl overflow-hidden bg-gray-800 border-4 border-[#2a3442]">
+              <div className="relative w-32 h-32 lg:w-40 lg:h-40 mx-auto mb-6 rounded-2xl overflow-hidden bg-gray-800 border-4 border-gray-700">
                 <img 
                   src={member.image} 
                   alt={member.name}
@@ -108,7 +108,7 @@ export function AboutSection() {
                 )}
 
                 {/* Quote */}
-                <div className="pt-4 border-t border-[#2a3442]">
+                <div className="pt-4 border-t border-gray-800">
                   <p className="text-[#00d4ff] text-xs lg:text-sm italic leading-relaxed">
                     "{member.quote}"
                   </p>
