@@ -32,7 +32,7 @@ export default function ContactPage() {
         </div>
 
         {/* Calendly Booking Section */}
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto relative z-10 block-calendly-rounded">
           <div 
             className="calendly-inline-widget" 
             data-url="https://calendly.com/mrkiglobal/30min?hide_gdpr_banner=1&hide_event_type_details=1" 
@@ -40,6 +40,16 @@ export default function ContactPage() {
           />
         </div>
       </div>
+      
+      <style jsx global>{`
+        .block-calendly-rounded iframe {
+          border-radius: 0 !important;
+          box-shadow: none !important;
+        }
+        .calendly-inline-widget {
+          border-radius: 0 !important;
+        }
+      `}</style>
     </div>
   );
 }

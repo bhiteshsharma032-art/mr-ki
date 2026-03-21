@@ -9,7 +9,6 @@ import PainPointsSection from '@/components/sections/PainPointsSection';
 import { IntegrationsMarquee } from '@/components/sections/IntegrationsMarquee';
 import SolutionSection from '@/components/sections/SolutionSection';
 import CurriculumSection from '@/components/sections/CurriculumSection';
-import OfferSection from '@/components/sections/OfferSection';
 import { LogoMarquee } from '@/components/sections/LogoMarquee';
 import ProcessSection from '@/components/sections/ProcessSection';
 import ResultsSection from '@/components/sections/ResultsSection';
@@ -32,7 +31,6 @@ export default function Home() {
           <PainPointsSection />
           <SolutionSection />
           <CurriculumSection />
-          <OfferSection />
           <LogoMarquee />
           <ResultsSection />
           <ProcessSection />

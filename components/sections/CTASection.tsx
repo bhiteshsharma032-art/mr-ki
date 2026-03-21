@@ -102,7 +102,7 @@ export default function CTASection() {
             isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
-          <button className="group relative bg-[#ff6b35] hover:bg-[#ff7d4d] text-white font-semibold py-5 px-10 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-soft-lg hover:shadow-float overflow-hidden">
+          <button onClick={() => window.location.href = '/contact'} className="group relative bg-[#ff6b35] hover:bg-[#ff7d4d] text-white font-semibold py-5 px-10 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-soft-lg hover:shadow-float overflow-hidden">
             {/* Shimmer effect */}
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             

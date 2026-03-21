@@ -4,6 +4,7 @@ import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { Navigation } from '@/components/sections/Navigation';
 import ThemeColor from '@/components/ui/ThemeColor';
+import CookieBanner from '@/components/ui/CookieBanner';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -82,6 +83,7 @@ export default function RootLayout({
           <ThemeColor />
           <Navigation />
           {children}
+          <CookieBanner />
         </ThemeProvider>
       </body>
     </html>

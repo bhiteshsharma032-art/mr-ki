@@ -1,12 +1,12 @@
 'use client';
 
-import { ArrowRight, Shield, Clock, Award, Infinity } from 'lucide-react';
+import { ArrowRight, UserPlus, Shield, Clock, Award, Infinity } from 'lucide-react';
 import { FloatingCard } from '@/components/ui/FloatingCard';
 
 const FEATURES = [
-  { icon: Clock, text: "Beginner Friendly", subtext: "No coding required" },
-  { icon: Award, text: "4 Weeks", subtext: "Self-paced learning" },
-  { icon: Shield, text: "Certificate", subtext: "Upon completion" },
+  { icon: UserPlus, text: "Beginner Friendly", subtext: "No coding required" },
+  { icon: Clock, text: "4 Weeks", subtext: "Self-paced learning" },
+  { icon: Award, text: "Certificate", subtext: "Upon completion" },
   { icon: Infinity, text: "Lifetime Access", subtext: "All future updates" }
 ];
 
@@ -51,8 +51,10 @@ export default function OfferSection() {
               const Icon = feature.icon;
               return (
                 <div key={index} className="text-center">
-                  <div className="w-12 h-12 rounded-3xl bg-[#ff6b35]/10 flex items-center justify-center mx-auto mb-3 transition-all duration-300 hover:scale-110 shadow-soft-sm">
-                    <Icon className="w-6 h-6 text-[#ff6b35]" />
+                  <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#1a1a1a] border border-neutral-700/50 hover:border-[#ff6b35]/50 transition-all duration-500 shadow-lg hover:shadow-[0_0_20px_-5px_rgba(255,107,53,0.3)] hover:-translate-y-1 mx-auto mb-4 group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#ff6b35]/20 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500" />
+                    <Icon className="w-6 h-6 text-gray-400 group-hover:text-[#ff6b35] transition-all duration-500 relative z-10" strokeWidth={1.5} />
+                    <div className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-gray-600/50 group-hover:bg-[#ff6b35] transition-colors duration-500 shadow-[0_0_10px_rgba(255,107,53,0)] group-hover:shadow-[0_0_10px_rgba(255,107,53,0.8)]" />
                   </div>
                   <div className="text-white font-semibold text-sm mb-1">
                     {feature.text}

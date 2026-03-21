@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { X, Mic, MicOff } from 'lucide-react';
 import { setupVapiEventHandlers, startVapiCall, stopVapiCall } from '@/lib/vapi';
 
@@ -82,7 +83,7 @@ export function VoiceOrbModal({ isOpen, onClose, onVapiConnect }: VoiceOrbModalP
       try {
         await startVapiCall();
         onVapiConnect?.();
-      } catch (err: Error) {
+      } catch (err: any) {
         setError(err.message || 'Failed to connect');
         setIsConnecting(false);
       }
@@ -133,22 +134,26 @@ export function VoiceOrbModal({ isOpen, onClose, onVapiConnect }: VoiceOrbModalP
         </button>
 
         {/* Voice Orb */}
-        <div className="relative flex items-center justify-center mb-8">
+        <div className="relative flex items-center justify-center mb-12 mt-8">
           {/* Outer glow rings */}
-          <div className={`absolute inset-0 transition-all duration-500 ${
-            isListening ? 'animate-pulse-slow' : ''
-          }`}>
-            <div className="absolute inset-0 rounded-full bg-[#ff6b35]/30 blur-3xl scale-[2.5]" />
-            <div className="absolute inset-0 rounded-full bg-[#ff6b35]/40 blur-2xl scale-[2]" />
+          <div className="absolute inset-0 pointer-events-none">
+            <motion.div 
+              animate={{ 
+                scale: isConnected ? [1, 1.2, 1] : [1, 1.05, 1],
+                opacity: isConnected ? [0.6, 0.8, 0.6] : [0.3, 0.5, 0.3]
+              }}
+              transition={{ repeat: Infinity, duration: isConnected ? 2 : 4, ease: "easeInOut" }}
+              className="absolute inset-0 rounded-full bg-[#ff6b35]/30 blur-[80px] scale-[2.5]" 
+            />
           </div>
 
           {/* Audio visualization rings */}
           {isListening && (
             <>
-              {[...Array(3)].map((_, i) => (
+              {[...Array(4)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute inset-0 rounded-full border-2 border-[#ff6b35]/30"
+                  className="absolute inset-0 rounded-full border border-[#ff6b35]/40 mix-blend-screen"
                   style={{
                     animation: `ping-slow ${2 + i * 0.5}s cubic-bezier(0, 0, 0.2, 1) infinite`,
                     animationDelay: `${i * 0.3}s`,
@@ -158,69 +163,88 @@ export function VoiceOrbModal({ isOpen, onClose, onVapiConnect }: VoiceOrbModalP
             </>
           )}
 
-          {/* Main orb */}
-          <button
+          {/* Main orb using Framer Motion */}
+          <motion.button
             onClick={toggleVapiCall}
             disabled={isConnecting}
             type="button"
-            className={`relative w-64 h-64 rounded-full flex items-center justify-center transition-all duration-500 cursor-pointer disabled:cursor-not-allowed ${
+            animate={
+              isConnected 
+                ? { scale: [1.05, 1.1, 1.05], boxShadow: "0 0 80px 20px rgba(255,107,53,0.3)" } 
+                : isConnecting 
+                ? { scale: [1, 1.02, 1], opacity: [0.8, 1, 0.8] } 
+                : { y: [-8, 8, -8] } // Smooth floating effect
+            }
+            transition={{
+              repeat: Infinity,
+              duration: isConnected ? 2 : isConnecting ? 1 : 4,
+              ease: "easeInOut"
+            }}
+            whileHover={!isConnected && !isConnecting ? { scale: 1.05, boxShadow: "0 0 50px 15px rgba(255,107,53,0.2)" } : {}}
+            whileTap={{ scale: 0.95 }}
+            className={`relative w-64 h-64 md:w-72 md:h-72 rounded-full flex items-center justify-center cursor-pointer disabled:cursor-not-allowed group isolation-auto border border-white/20 ${
               isConnected
-                ? 'bg-gradient-to-br from-[#ff6b35] via-[#ff7d4d] to-[#ff9d7d] scale-110 shadow-2xl shadow-[#ff6b35]/50' 
+                ? 'bg-[radial-gradient(circle_at_30%_30%,#ff9d7d,#ff6b35_60%,#992d00)]' 
                 : isConnecting
-                ? 'bg-gradient-to-br from-[#ff6b35]/70 to-[#ff9d7d]/70 animate-pulse'
-                : 'bg-gradient-to-br from-[#ff6b35]/90 to-[#ff9d7d]/90 hover:scale-105 shadow-xl'
+                ? 'bg-[radial-gradient(circle_at_50%_50%,#ff7d4d,#ff6b35_80%)]'
+                : 'bg-[radial-gradient(circle_at_35%_25%,#ff7d4d,#ff6b35_60%,#802600)] shadow-[inset_0_-15px_30px_rgba(0,0,0,0.4),0_20px_40px_rgba(255,107,53,0.2)]'
             }`}
           >
-            {/* Inner glow */}
-            <div className="absolute inset-4 rounded-full bg-white/10 blur-xl" />
+            {/* Glassmorphism Inner Overlay & Specular Highlight */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/10 to-white/40 opacity-70 mix-blend-overlay pointer-events-none" />
+            <div className="absolute top-[8%] left-[15%] w-[40%] h-[20%] rounded-[100%] bg-white/30 blur-md transform -rotate-12 pointer-events-none" />
             
-            {/* Icon */}
-            <div className="relative z-10">
+            {/* Dynamic rotating rim light */}
+            <div className="absolute inset-[-2px] rounded-full bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(255,255,255,0.8)_360deg)] animate-[spin_4s_linear_infinite] opacity-30 mix-blend-overlay pointer-events-none" />
+            <div className="absolute inset-1 rounded-full border border-white/10 pointer-events-none" />
+
+            {/* Content Container */}
+            <div className="relative z-10 flex flex-col items-center gap-4">
               {isConnecting ? (
-                <div className="flex flex-col items-center gap-3">
-                  <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center animate-spin">
-                    <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full" />
+                <div className="flex flex-col items-center gap-4">
+                  <div className="w-24 h-24 rounded-full bg-black/20 backdrop-blur-lg border border-white/30 flex items-center justify-center shadow-inner">
+                    <div className="w-10 h-10 border-[3px] border-white/80 border-t-transparent rounded-full animate-spin" />
                   </div>
-                  <span className="text-white text-sm font-medium">Connecting...</span>
+                  <span className="text-white text-sm font-semibold tracking-widest uppercase drop-shadow-md">Connecting...</span>
                 </div>
               ) : isConnected ? (
-                <div className="flex flex-col items-center gap-3">
-                  <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center animate-pulse">
+                <div className="flex flex-col items-center gap-4">
+                  <div className="w-24 h-24 rounded-full bg-black/30 backdrop-blur-lg flex items-center justify-center border border-white/40 shadow-[0_0_40px_rgba(255,255,255,0.3)] group-hover:bg-red-500/80 group-hover:border-red-400 group-hover:shadow-[0_0_40px_rgba(239,68,68,0.6)] transition-all duration-300">
                     <MicOff className="w-10 h-10 text-white" />
                   </div>
-                  <span className="text-white text-sm font-medium">Connected - Click to end</span>
+                  <span className="text-white text-sm font-semibold tracking-widest uppercase drop-shadow-md">Tap to end</span>
                 </div>
               ) : (
-                <div className="flex flex-col items-center gap-3">
-                  <Mic className="w-16 h-16 text-white" />
-                  <span className="text-white text-sm font-medium">Click to start AI call</span>
+                <div className="flex flex-col items-center gap-5">
+                  <div className="relative w-28 h-28 rounded-full bg-black/20 backdrop-blur-xl flex items-center justify-center border border-white/30 group-hover:bg-black/40 group-hover:border-[#ff6b35] transition-all duration-500 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+                    <Mic className="w-12 h-12 text-white group-hover:scale-110 group-hover:text-[#ff9d7d] transition-all duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.6)]" />
+                    
+                    {/* Inner glowing ring on hover */}
+                    <div className="absolute inset-0 rounded-full border border-[#ff6b35]/0 group-hover:border-[#ff6b35] group-hover:scale-90 transition-all duration-500" />
+                  </div>
+                  <span className="text-white text-sm font-bold tracking-[0.2em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">Start AI Call</span>
                 </div>
               )}
             </div>
-
-            {/* Pulse effect when listening */}
-            {isListening && (
-              <div className="absolute inset-0 rounded-full bg-white/10 animate-pulse-slow" />
+            
+            {/* Sparkle particles inside orb when connected */}
+            {isConnected && (
+              <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
+                {[...Array(6)].map((_, i) => (
+                  <div
+                    key={`sparkle-${i}`}
+                    className="absolute w-1.5 h-1.5 bg-white rounded-full opacity-0"
+                    style={{
+                      left: `${40 + Math.random() * 20}%`,
+                      top: `${40 + Math.random() * 20}%`,
+                      animation: `sparkle-float ${2 + Math.random() * 2}s ease-in-out infinite`,
+                      animationDelay: `${Math.random() * 2}s`,
+                    }}
+                  />
+                ))}
+              </div>
             )}
-          </button>
-
-          {/* Sparkle particles */}
-          {isListening && (
-            <div className="absolute inset-0 pointer-events-none">
-              {[...Array(12)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-2 h-2 bg-white rounded-full animate-sparkle-orbit"
-                  style={{
-                    left: '50%',
-                    top: '50%',
-                    transform: `rotate(${i * 30}deg) translateY(-160px)`,
-                    animationDelay: `${i * 0.15}s`,
-                  }}
-                />
-              ))}
-            </div>
-          )}
+          </motion.button>
         </div>
 
         {/* Audio visualization bars */}

@@ -89,10 +89,13 @@ export function ServicesSection() {
                 
                 {/* Icon */}
                 <div className={cn(
-                  "w-16 h-16 rounded-3xl flex items-center justify-center border border-border/50 mb-6 transition-all duration-300 group-hover:scale-110",
-                  service.iconBg
+                  "relative inline-flex items-center justify-center w-16 h-16 rounded-[1.25rem] bg-[#1a1a1a] border border-neutral-700/50 transition-all duration-500 shadow-xl group-hover:-translate-y-1 mb-6",
+                  service.borderClass,
+                  service.shadowClass.replace('8px_32px', '0_30px_-5px')
                 )}>
-                  <Icon className={cn("w-8 h-8", service.iconColor)} />
+                  <div className={cn("absolute inset-0 opacity-0 group-hover:opacity-100 rounded-[1.25rem] transition-opacity duration-500 bg-gradient-to-br", service.bgGradient)} />
+                  <Icon className={cn("w-8 h-8 transition-all duration-500 relative z-10 group-hover:scale-110", service.iconColor)} strokeWidth={1.5} />
+                  <div className={cn("absolute top-2 right-2 w-1.5 h-1.5 rounded-full transition-all duration-500 opacity-50 group-hover:opacity-100 shadow-sm", service.iconBg.replace('/10', ''))} />
                 </div>
 
                 {/* Content */}

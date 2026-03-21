@@ -5,11 +5,10 @@ import Link from 'next/link';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 const NAV_LINKS = [
-  { name: 'Services', href: '/services' },
-  { name: 'Process', href: '/#process' },
-  { name: 'Results', href: '/#results' },
-  { name: 'Testimonials', href: '/#testimonials' },
-  { name: 'FAQs', href: '/#faqs' },
+  { name: 'Services', href: '/#services-section' },
+  { name: 'Command Center', href: '/command-center' },
+  { name: 'Community', href: '/community' },
+  { name: 'Privacy Policy', href: '/privacy' },
 ];
 
 export function Navigation() {
@@ -26,6 +25,7 @@ export function Navigation() {
               alt="Mr Ki Logo" 
               className="h-8 w-auto"
             />
+            <span className="md:hidden text-white font-bold text-lg">MR KI</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -57,7 +57,7 @@ export default function FAQSection() {
         </div>
 
         {/* FAQ Accordion */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             
@@ -74,9 +74,9 @@ export default function FAQSection() {
                 {/* Question */}
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full text-left p-6 md:p-8 flex items-start justify-between gap-4 group"
+                  className="w-full text-left py-4 px-5 md:py-5 md:px-6 flex items-center justify-between gap-4 group"
                 >
-                  <span className="text-lg md:text-xl font-semibold text-text-primary pr-4 leading-relaxed">
+                  <span className="text-base md:text-lg font-semibold text-text-primary pr-4 leading-snug">
                     {faq.question}
                   </span>
                   
@@ -86,9 +86,9 @@ export default function FAQSection() {
                       : 'bg-bg-secondary text-text-secondary group-hover:bg-accent-primary/10 group-hover:text-accent-primary'
                   }`}>
                     {isOpen ? (
-                      <X className="w-5 h-5" />
+                      <X className="w-4 h-4" />
                     ) : (
-                      <Plus className="w-5 h-5" />
+                      <Plus className="w-4 h-4" />
                     )}
                   </div>
                 </button>
@@ -104,7 +104,7 @@ export default function FAQSection() {
                     overflow: 'hidden'
                   }}
                 >
-                  <div className="px-6 md:px-8 pb-6 md:pb-8">
+                  <div className="px-5 md:px-6 pb-4 md:pb-5">
                     <div className={`w-12 h-0.5 bg-accent-primary mb-4 transition-all duration-500 ${
                       isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
                     }`} />

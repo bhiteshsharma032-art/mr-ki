@@ -1,6 +1,7 @@
 'use client';
 
 import { Linkedin } from 'lucide-react';
+import Link from 'next/link';
 
 const socialLinks = [
   { icon: Linkedin, href: 'https://de.linkedin.com/in/heikoknoedel/en', label: 'LinkedIn' }
@@ -42,9 +43,12 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex justify-center items-center text-sm text-text-secondary">
-            <p>© 2026 Mr Ki. All rights reserved.</p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-text-secondary">
+          <p>© 2026 Mr Ki. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="hover:text-accent-primary transition-colors">
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>

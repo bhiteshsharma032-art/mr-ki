@@ -153,18 +153,21 @@ export default function ProcessSection() {
                 >
                   <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
                     <div 
-                      className={`w-16 h-16 rounded-full border-4 flex items-center justify-center transition-all duration-500 shadow-soft-md ${
+                      className={`relative inline-flex items-center justify-center w-16 h-16 rounded-full border-2 transition-all duration-700 shadow-xl backdrop-blur-sm ${
                         isActive 
-                          ? 'bg-accent-primary border-accent-primary scale-110 shadow-soft-lg' 
-                          : 'bg-bg-card border-border'
+                          ? 'bg-accent-primary/20 border-accent-primary scale-110' 
+                          : 'bg-[#1a1a1a] border-neutral-700/50'
                       }`}
                       style={nodeStyle}
                     >
+                      <div className={`absolute inset-0 rounded-full transition-opacity duration-700 bg-gradient-to-br from-accent-primary/30 to-transparent ${isActive ? 'opacity-100' : 'opacity-0'}`} />
                       <Icon 
-                        className={`w-7 h-7 transition-colors duration-500 ${
-                          isActive ? 'text-white' : 'text-text-secondary'
+                        className={`w-7 h-7 transition-colors duration-500 relative z-10 ${
+                          isActive ? 'text-accent-primary drop-shadow-[0_0_8px_rgba(232,85,61,0.8)]' : 'text-gray-500'
                         }`}
+                        strokeWidth={isActive ? 2 : 1.5}
                       />
+                      <div className={`absolute inset-1 rounded-full border transition-all duration-700 ${isActive ? 'border-accent-primary/40' : 'border-transparent'}`} />
                     </div>
                   </div>
 

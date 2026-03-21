@@ -1,16 +1,16 @@
 'use client';
 
-import { ArrowRight, BookOpen, Zap, Target } from 'lucide-react';
+import { ArrowRight, Search, CalendarDays, Target } from 'lucide-react';
 import { FloatingCard } from '@/components/ui/FloatingCard';
 
 const BENEFITS = [
   {
-    icon: BookOpen,
+    icon: Search,
     title: "Blog & SEO Management AI",
     description: "AI analyzes trends and news in your niche, creates SEO-optimized blogs with meta tags and images. Email approval before publishing."
   },
   {
-    icon: Zap,
+    icon: CalendarDays,
     title: "Content Calendar & Campaign AI",
     description: "Advanced reasoning AI analyzes niche trends, creates strategic content calendars and campaign scripts for your team."
   },
@@ -97,8 +97,10 @@ export default function SolutionSection() {
                 intensity="medium"
                 className="p-8 hover:border-[#ff6b35]/50"
               >
-                <div className="w-14 h-14 rounded-3xl bg-[#ff6b35]/10 flex items-center justify-center mb-6 transition-all duration-300 hover:scale-110 shadow-soft-sm">
-                  <Icon className="w-7 h-7 text-[#ff6b35]" />
+                <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-[1.25rem] bg-[#1a1a1a] border border-neutral-700/50 group-hover:border-[#ff6b35]/50 transition-all duration-500 shadow-xl group-hover:shadow-[0_0_30px_-5px_rgba(255,107,53,0.3)] group-hover:-translate-y-1 mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ff6b35]/20 to-transparent opacity-0 group-hover:opacity-100 rounded-[1.25rem] transition-opacity duration-500" />
+                  <Icon className="w-8 h-8 text-gray-400 group-hover:text-[#ff6b35] transition-all duration-500 relative z-10" strokeWidth={1.5} />
+                  <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-gray-600/50 group-hover:bg-[#ff6b35] transition-colors duration-500 shadow-[0_0_10px_rgba(255,107,53,0)] group-hover:shadow-[0_0_10px_rgba(255,107,53,0.8)]" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">
                   {benefit.title}
@@ -112,7 +114,7 @@ export default function SolutionSection() {
         </div>
 
         {/* Testimonial */}
-        <FloatingCard intensity="medium" className="bg-gradient-to-br from-[#ff6b35]/10 to-transparent p-8 max-w-4xl mx-auto border-[#ff6b35]/20">
+        <FloatingCard intensity="medium" className="hidden border-[#ff6b35]/20 bg-gradient-to-br from-[#ff6b35]/10 to-transparent p-8 max-w-4xl mx-auto">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#ff6b35] to-[#ff9d7d] flex-shrink-0" />
             <div>

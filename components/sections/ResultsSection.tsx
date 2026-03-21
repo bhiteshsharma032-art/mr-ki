@@ -9,7 +9,7 @@ interface ResultCard {
   number: string;
   label: string;
   subtitle: string;
-  span?: 'col-span-1' | 'col-span-2';
+  span?: string;
   visual?: 'line-chart' | 'bar-chart' | 'stars';
   countUp?: boolean;
 }
@@ -20,7 +20,7 @@ const results: ResultCard[] = [
     number: '847',
     label: 'Hours Saved',
     subtitle: 'per month, per client average',
-    span: 'col-span-2',
+    span: 'md:col-span-2 lg:col-span-2',
     visual: 'line-chart',
     countUp: true
   },
@@ -47,10 +47,10 @@ const results: ResultCard[] = [
   },
   {
     id: '5',
-    number: '2.4',
-    label: 'Total Revenue Generated',
-    subtitle: 'for our clients through automation',
-    span: 'col-span-2',
+    number: '50',
+    label: 'Tasks Automated',
+    subtitle: 'completed automatically across all systems every month',
+    span: 'md:col-span-2 lg:col-span-2',
     visual: 'bar-chart',
     countUp: true
   },
@@ -192,11 +192,10 @@ function ResultCardComponent({ result, index }: { result: ResultCard; index: num
   if (result.label === 'Uptime') suffix = '%';
   if (result.label === 'Response Time') prefix = '< ';
   if (result.label === 'Response Time') suffix = 'hrs';
-  if (result.label === 'Total Revenue Generated') prefix = '$';
-  if (result.label === 'Total Revenue Generated') suffix = 'M+';
+  if (result.label === 'Tasks Automated') suffix = 'k+';
   if (result.label === 'Client Satisfaction') suffix = '/5';
 
-  const isLarge = result.span === 'col-span-2';
+  const isLarge = result.span?.includes('col-span-2');
 
   return (
     <div

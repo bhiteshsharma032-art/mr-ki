@@ -26,7 +26,6 @@ const STATS: StatItem[] = [
   { value: 200, suffix: "+", label: "Automations Deployed", icon: Zap },
   { value: 50, suffix: "+", label: "Happy Clients", icon: Users },
   { value: 98, suffix: "%", label: "Client Retention", icon: TrendingUp },
-  { value: 2.4, prefix: "$", suffix: "M+", label: "Revenue Generated for Clients", icon: DollarSign, isFloat: true },
 ];
 
 function Counter({ from = 0, to, duration = 2, isFloat = false }: { from?: number, to: number, duration?: number, isFloat?: boolean }) {
@@ -108,7 +107,7 @@ export function LogoMarquee() {
 
       {/* Stats Bar */}
       <div ref={containerRef} className="container mx-auto px-6 md:px-12 mt-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {STATS.map((stat, index) => (
             <motion.div
               key={stat.label}

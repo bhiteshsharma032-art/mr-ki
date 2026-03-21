@@ -1,44 +1,65 @@
 'use client';
 
-import { Clock, DollarSign, Users, TrendingDown, AlertCircle, Zap } from 'lucide-react';
-import { FloatingCard } from '@/components/ui/FloatingCard';
+import { Mail, Phone, MessageCircle, TrendingUp, Globe, FileText, Video, BarChart3, Users, Zap, Brain } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-const PAIN_POINTS = [
+const SERVICES = [
   {
-    icon: Clock,
-    title: "Email Automation & Management",
-    description: "AI handles all your email communications - automated responses, follow-ups, and customer engagement across all channels."
+    icon: Mail,
+    title: "Email Automation",
+    description: "AI-powered email management system that handles customer inquiries, automates responses, and maintains engagement across all email channels."
   },
   {
-    icon: DollarSign,
-    title: "AI Calling Agents (Inbound & Outbound)",
-    description: "Intelligent voice AI for customer support, sales calls, and follow-ups. Natural conversations that convert."
+    icon: Phone,
+    title: "AI Calling Agents",
+    description: "Intelligent voice AI agents for inbound and outbound calls, handling customer service, sales, and support with natural conversations."
   },
   {
-    icon: Users,
-    title: "Complete Social Media Automation",
-    description: "AI manages comments, DMs, and customer interactions across all platforms. Stores data and provides weekly reports."
+    icon: MessageCircle,
+    title: "Social Media Management",
+    description: "Complete AI-driven social media automation across all platforms - managing comments, DMs, and customer interactions 24/7."
   },
   {
-    icon: TrendingDown,
-    title: "Content Creation & Marketing",
-    description: "AI analyzes your brand, niche, and target location to create educational posts, marketing content, and ad creatives."
+    icon: TrendingUp,
+    title: "Content Marketing AI",
+    description: "AI analyzes your brand, niche, and target location to create strategic content that resonates with your audience."
   },
   {
-    icon: AlertCircle,
-    title: "UGC & Commercial Video Production",
-    description: "AI-generated UGC content, commercial ads, and 3D product renders for launches and campaigns."
+    icon: Video,
+    title: "Creative Content Production",
+    description: "AI-generated UGC content, commercial ads, and 3D product renders for product launches and marketing campaigns."
+  },
+  {
+    icon: Globe,
+    title: "AI-Powered Web Development",
+    description: "Modern, advanced UI websites integrated with AI agents for enhanced user experience and automated customer interactions."
+  },
+  {
+    icon: FileText,
+    title: "Blog & SEO Management",
+    description: "AI agent that analyzes trends, creates SEO-optimized blog content with meta tags and images, and manages publishing."
+  },
+  {
+    icon: Brain,
+    title: "Content Calendar AI",
+    description: "Advanced reasoning AI that analyzes niche trends and creates strategic content calendars with scripts for your team."
   },
   {
     icon: Zap,
-    title: "Web Development with AI Integration",
-    description: "Modern, advanced UI websites with integrated AI agents for enhanced user experience and automation."
+    title: "Outbound Campaign Automation",
+    description: "Run multi-channel outbound campaigns through calling, WhatsApp, and other platforms with AI-driven targeting."
+  },
+  {
+    icon: BarChart3,
+    title: "Analytics & Competitor Intelligence",
+    description: "Comprehensive AI analysis of your social media performance, competitor strategies, and weekly insights with recommendations."
   }
 ];
 
 export default function PainPointsSection() {
   return (
     <section 
+      id="services-section"
       className="relative min-h-screen flex items-center justify-center py-32 px-4 sm:px-6 lg:px-8"
       style={{
         backgroundImage: 'url(/starfield-bg.png)',
@@ -149,7 +170,7 @@ export default function PainPointsSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 mt-20 md:mt-0">
           <div className="text-sm font-semibold text-[#ff6b35] uppercase tracking-wider mb-4">
             OUR SERVICES
           </div>
@@ -161,26 +182,48 @@ export default function PainPointsSection() {
           </p>
         </div>
 
-        {/* Pain Points Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PAIN_POINTS.map((point, index) => {
-            const Icon = point.icon;
+        {/* Services List */}
+        <div className="flex flex-col gap-6 lg:gap-8 relative z-20 max-w-4xl mx-auto">
+          {SERVICES.map((service, index) => {
+            const IconComponent = service.icon;
             return (
-              <FloatingCard
-                key={index}
-                intensity="light"
-                className="p-6 hover:border-[#ff6b35]/50 group"
+              <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: (index % 10) * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+                key={index} 
+                className="group relative bg-[#111111]/80 backdrop-blur-3xl rounded-[2rem] p-6 lg:p-8 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(255,107,53,0.15)] hover:bg-[#151515] border border-neutral-800/60 hover:border-[#ff6b35]/40 overflow-hidden flex flex-col md:flex-row items-start md:items-center gap-6 lg:gap-8 cursor-pointer"
+                onClick={() => window.location.href = '/contact'}
               >
-                <div className="w-12 h-12 rounded-3xl bg-[#ff6b35]/10 flex items-center justify-center mb-4 group-hover:bg-[#ff6b35]/20 transition-all duration-300 group-hover:scale-110 shadow-soft-sm">
-                  <Icon className="w-6 h-6 text-[#ff6b35]" />
+                {/* Background Accents */}
+                <div className="absolute top-1/2 -translate-y-1/2 left-0 w-32 h-64 bg-gradient-to-r from-[#ff6b35]/10 to-transparent rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10" />
+                
+                {/* Icon */}
+                <div className="relative inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-2xl bg-[#1a1a1a] border border-neutral-700/50 group-hover:border-[#ff6b35]/50 transition-all duration-500 shadow-xl group-hover:shadow-[0_0_20px_-5px_rgba(255,107,53,0.3)]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ff6b35]/20 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500" />
+                  <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-gray-400 group-hover:text-[#ff6b35] transition-all duration-500 relative z-10" strokeWidth={1.2} />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  {point.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {point.description}
-                </p>
-              </FloatingCard>
+
+                {/* Content */}
+                <div className="flex-1 pr-4 md:pr-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-[#ff6b35] transition-all duration-300 tracking-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm md:text-base leading-relaxed font-light mt-2 max-w-2xl">
+                    {service.description}
+                  </p>
+                </div>
+                
+                {/* CTA Arrow Button */}
+                <div className="shrink-0 pt-4 md:pt-0 border-t border-neutral-800/60 md:border-t-0 w-full md:w-auto flex justify-end">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1a1a] border border-neutral-800 text-gray-400 group-hover:bg-[#ff6b35] group-hover:border-[#ff6b35] group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-[0_0_20px_-5px_rgba(255,107,53,0.5)]">
+                    <svg className="w-5 h-5 transform group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </div>
+                </div>
+              </motion.div>
             );
           })}
         </div>
