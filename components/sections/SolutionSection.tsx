@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight, Search, CalendarDays, Target } from 'lucide-react';
+import Link from 'next/link';
 import { FloatingCard } from '@/components/ui/FloatingCard';
 
 const BENEFITS = [
@@ -61,13 +62,13 @@ export default function SolutionSection() {
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             AI-powered insights, competitor analysis, and strategic recommendations delivered weekly.
           </p>
-          <button 
-            onClick={() => window.location.href = '/services'}
+          <Link 
+            href="/services"
             className="bg-[#ff6b35] hover:bg-[#ff7d4d] text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-soft-lg hover:shadow-float inline-flex items-center gap-2"
           >
             View All Services
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </Link>
         </div>
 
         {/* Roles Ticker */}

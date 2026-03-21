@@ -2,6 +2,7 @@
 
 import { ArrowRight, Send, AudioWaveform, Sparkles } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
 import { VoiceOrbModal } from '@/components/ui/VoiceOrbModal';
 
 export function HeroSection() {
@@ -150,13 +151,13 @@ export function HeroSection() {
             Join <span className="text-[#ff6b35] font-semibold">500+ businesses</span> using our AI automation ecosystem to scale operations and boost revenue
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button 
-              onClick={() => window.location.href = '/services'}
+            <Link 
+              href="/services"
               className="bg-[#ff6b35] hover:bg-[#ff7d4d] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
             >
               View All Services
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
           <p className="text-white/60 text-sm mt-4">
             ✓ No sales pressure  ✓ Quick 15-min chat  ✓ Custom solution roadmap
